@@ -1,0 +1,117 @@
+.btn-modal {
+    height: 45px;
+    display: flex;
+    padding: 0 15px;
+    color: black;
+    cursor: default;
+}
+
+.btn-modal:hover {
+    background-color: #ddd;
+  }
+
+#urlInput-ErrorNotification
+{
+    margin: 1rem auto;
+    width:80%;
+    display: flex;
+    justify-content: center;
+}
+.popup-h2 {
+    color: black;
+    margin-bottom: 3.4rem;
+}
+
+.modal {
+    display: flex;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    background: rgba(49,49,49,0.8);
+}
+
+.modal-content {
+    z-index: 2;
+    position: fixed;
+    transform: translate(-50%, 0%);
+    line-height: 1.4;
+    background: #f1f1f1;
+    padding: 30px 50px;
+    border-radius: 3px;
+    /* max-width: 600px;
+    min-width: 300px; */
+    width: 40%;
+    margin: 3rem auto;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f1f1f1;
+    border-color: rgba(221, 221, 221, 0);
+    font-size: 1em;
+}
+
+.fa-times-circle:hover{
+    color: rgb(100,100,100);
+    transition: all 0.1s ease-in;
+}
+
+.fa-times-circle {
+    color: rgb(180, 180, 180);
+}
+
+.addNewIMG {
+    width: 20px;
+    margin: auto 10px auto 0;
+}
+
+.addNewText {
+    margin: auto 0;
+}
+
+.download-btn {
+    font-size: 1.5em;
+    background-color: #006885;
+    color: white;
+    border: 2px solid black;
+    margin: 0 auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width:40%;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width:480px)
+{
+    .download-btn {
+        font-size: 1.5em;
+        background-color: #006885;
+        color: white;
+        border: 2px solid black;
+        margin: 0 auto;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        width:90%;
+        display: flex;
+        justify-content: center;
+    }
+}
+.download-btn:hover{
+    background-color: rgb(255, 255, 255);
+    color:#006885;
+    transition: all .2s ease-in;
+}
+
+.hidden {
+    visibility: hidden;
+}

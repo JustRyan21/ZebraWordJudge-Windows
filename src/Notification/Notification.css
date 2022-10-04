@@ -1,0 +1,30 @@
+.Notification {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 14px;
+    font: inherit;
+    border: 0;
+    outline: 0;
+    margin: 0 auto 10px auto;
+    font-size: 16px;
+    transition: all 0.15s ease-in;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.notificationImg {
+    width: 23px;
+    padding: 0 3%;
+    float: left;
+}
+
+.errorNotification {
+    background-color: rgb(253, 162, 162);
+}
+
+.successNotification {
+    background-color: rgb(162, 253, 203);
+}

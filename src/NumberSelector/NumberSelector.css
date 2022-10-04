@@ -1,0 +1,15 @@
+.NumberSelector-h1 {
+    display:flex;
+    margin-bottom: 4rem;
+    font-size: 2rem;
+}
+
+.numberBoxes {
+    justify-content: center;
+    align-items: center;
+}
+
+.numpad {
+    justify-content: center;
+    align-items: center;
+}

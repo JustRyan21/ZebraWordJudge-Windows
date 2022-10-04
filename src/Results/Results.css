@@ -1,0 +1,88 @@
+
+.validcolor
+{
+    background-color: rgb(131, 243, 153);
+}
+
+.invalidcolor
+{
+    background-color: rgb(255, 114, 114);
+}
+
+.resultsPage {
+    position: relative;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 20rem;
+    max-width: 100%;
+    width: 30rem;
+    min-height: 20rem;
+    max-height: 100%;
+    height: 30rem;
+}
+
+.ResultsPageInvalid
+{
+    background-color: rgb(255, 114, 114);
+}
+
+.ResultsPageValid
+{
+    background-color: rgb(131, 243, 153);
+}
+
+.wordListResults {
+    margin-top: 10%
+}
+
+h3 {
+    font-size:35px;
+    padding-top: 1px;
+    float : top;
+}
+
+h4
+{
+    font-size:18px;
+    font-weight: normal;
+    padding-top : 25px;
+}
+
+
+#new_search-btn {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+    font-size: 1.5rem;
+    background-color: #006885;
+    color: white;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0rem;
+    transition: all 0.2s ease-in;
+}
+
+.timer
+{
+    text-align: left;
+    padding-left: 1rem;
+}
+
+#new_search-btn:hover{
+    background-color: rgb(255, 255, 255);
+    color:#006885;
+}
+
+#new_search-btn:focus{
+    background-color: rgb(255, 255, 255);
+    color:#006885;
+}
+
+.progressBar {
+    width: 25px;
+    height: 25px;
+    margin: 10px 10px 0 auto;
+}

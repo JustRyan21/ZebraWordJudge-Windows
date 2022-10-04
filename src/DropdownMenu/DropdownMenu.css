@@ -1,0 +1,125 @@
+.dropbtn {
+    min-width: 215px;
+    height: 100%;
+    font-size: 16px;
+    border: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #006885;
+    color: white;
+    padding: 0 30px;
+}
+@media screen and (max-width:480px)
+{
+  .dropbtn {
+    height: 100%;
+    font-size: 12px;
+    border: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #006885;
+    color: white;
+    padding: 0 30px;
+  }
+  .drop-btn-text {
+    font-size: 12px;
+  }
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-item {
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+  cursor: default;
+}
+
+.lexiconSize {
+  font-size: 0.8em;
+  background-color: rgb(203, 203, 203);
+  padding: 5px 8px;
+  border-radius: 10px;
+  margin: auto 0;
+  margin-left: 5px;
+}
+
+.lexiconVerify {
+    font-size: 0.8em;
+    float: right;
+    background-color: #0090b8;
+    padding: 5px 8px;
+    border-radius: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.dropdown-content p {
+  color: black;
+  margin: auto 0;
+}
+
+.dropdown-content .dropdown-item:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #006885;
+  color: white;
+}
+
+.caretDown {
+  width: 12px;
+  margin-left: 10px;
+}
+
+.arrowRight {
+  width: 12px;
+  margin: 0 13px 0 10px;
+}
+
+.drop-btn-text {
+  font-size: 18px;
+}
+
+.lexicon-text {
+  font-size: 20px;
+  text-decoration: underline;
+  color: white;
+  margin: 0 15px 0 10px;
+}
+
+.current-lexicon {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  margin-right: 10px;
+  
+}
+
+.lexiconName {
+  padding-left: 30px;
+}
+
+.badges { 
+  display: flex;
+}

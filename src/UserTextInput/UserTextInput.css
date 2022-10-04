@@ -1,0 +1,76 @@
+
+.UserTextInput {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.UserTextInput-h1 {
+    font-size: 2rem;
+    padding-bottom: 1rem;
+    display: inline-block;
+    margin-top: 0.5rem;
+    margin-bottom: 1.3rem;
+}
+
+#judge-btn {
+    font-size: 1.5em;
+    background-color: #006885;
+    color: white;
+    border: 2px solid black;
+    padding: 1rem 7.5rem; 
+    margin-bottom: 1rem;
+}
+
+#judge-btn:hover{
+    background-color: rgb(255, 255, 255);
+    color:#006885;
+    transition: all .2s ease-in;
+}
+
+#judge-btn:focus{
+    background-color: rgb(255, 255, 255);
+    color:#006885;
+}
+
+#numWords-btn {
+    font-size: 1.2em;
+    background-color: rgba(178, 219, 254, 0);
+    border: 2px solid rgba(0, 0, 0, 0);
+    padding: 5px 0;
+    float: left;
+    position: relative;
+    right: 10px;
+    color: rgb(100, 100, 100);
+}
+#backtext{
+    padding-left: 3px;
+    float: right;
+    position: relative;
+}
+
+#numWords-btn:hover{
+    color: black;
+}
+
+#clear-btn
+{
+    top:0.2rem;
+    left: 1.8rem;
+    font-size: 1.2em;
+    background-color: rgba(178, 219, 254, 0);
+    border: 2px solid rgba(0, 0, 0, 0);
+    float: right;
+    position: relative;
+    color:rgb(100,100,100);
+}
+
+#clear-btn:hover{
+    color: black;
+}
+
+.btn-row {
+    width: 300px;
+    height: 40px;
+    margin-bottom: 5px;
+}

@@ -1,0 +1,50 @@
+.footer {
+    position: absolute;
+    bottom: 0; 
+    display: flex;
+    width:100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.02);
+    height: 3rem;
+    background-color: rgba(68, 76, 79, 0.09);
+    align-items: center;
+  }
+
+.app--icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 1.5rem;
+    margin-right: auto;
+}
+
+.app--icon {
+    margin-right: 1.5rem;
+}
+
+.app--icon:hover {
+    color: rgb(100, 100, 100);
+}
+
+.org--icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 1.5rem;
+}
+
+.org--icon {
+    margin-left: 0.9rem;
+}
+
+/*fa is how you control all the svg icons*/
+.faAppIcon{
+    color: black;
+}
+.faAppIcon:hover {
+    color: rgb(100, 100, 100);
+}
+
+
+
+
+

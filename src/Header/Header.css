@@ -1,0 +1,45 @@
+.header {
+    display: flex;
+    align-items: center;
+    height: 65px;
+    background-color: #006885;
+    color: white;
+}
+
+.logo {
+    height: 90%;
+    margin-right: 0.5rem;
+    margin-left: 1rem;
+}
+
+.header--title {
+    font-size: 1.5rem;
+    text-align: left;
+    font-family: lora, serif;
+}
+
+.header--lexicon {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.header--div {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    height: 65px;
+    cursor: pointer;
+}
+
+@media screen and (max-width:480px) {
+    .header--title {
+        width: 0;
+        height: 0;
+        display: none;
+    }
+
+    .logo {
+        height: 80%;
+        margin-right: 0px;
+    }
+}
