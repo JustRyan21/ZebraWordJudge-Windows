@@ -49,16 +49,15 @@ function Results(props) {
     const timerPathColor =  (props.judgeResult) ? 'rgb(100, 100, 100)' : `rgba(210, 210, 210, 1)`;
 
     return (
-        <div className={'resultsPage ' + (props.judgeResult ? "ResultsPageValid" : "ResultsPageInvalid")}>
+        <div onClick={(props.returnToNumberSelector)} className={'resultsPage ' + (props.judgeResult ? "ResultsPageValid" : "ResultsPageInvalid")}>
           {/* <div className="progressBar">
             <CircularProgressbar value={timer} strokeWidth={25} styles={buildStyles({strokeLinecap: 'butt', pathColor: timerPathColor, backgroundColor: timerBgColor, trailColor: timerBgColor})}/>
           </div> */}
           <h3 id="resultsTitle">{props.judgeResult ? "Valid" : "Invalid"}</h3>
           <div className='wordListResults'>
             {wordslist}
-          </div>
+          </div>  
           <br/>
-          <button id="new_search-btn"onClick={(props.returnToNumberSelector)}>New Search</button>
         </div>
     );       
 }
