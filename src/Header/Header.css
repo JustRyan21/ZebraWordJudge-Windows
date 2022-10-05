@@ -18,6 +18,15 @@
     font-family: lora, serif;
 }
 
+.header--menu {
+    position: absolute;
+    right: 0;
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+
+
 .header--lexicon {
     font-size: 0.75rem;
     font-weight: 500;
