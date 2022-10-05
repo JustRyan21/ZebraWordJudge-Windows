@@ -1,12 +1,13 @@
 import React from 'react';
 import './Header.css';
 import im from '../images/Logo.png';
+import Logo from '../images/Logo.svg';
 
 function Header(props) {
     return (
         <header className="header">
             <div className="header--div">
-                <img src={im} className="logo" alt="logo" />
+                <Logo height={80}/>
                 <h2 className="header--title">Zebra Word Judge</h2>
             </div>
             {/* <DropdownMenu lexiconData={props.lexiconData} setShowModal={props.setShowModal} currentLexicon={props.currentLexicon} setCurrentLexicon={(newLexicon) => props.setCurrentLexicon(newLexicon)} addLexicon={props.addLexicon} /> */}
