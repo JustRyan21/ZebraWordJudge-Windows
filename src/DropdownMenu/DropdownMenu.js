@@ -46,17 +46,8 @@ function DropdownMenu(props) {
         <ArrowRight className='arrowRight'/>
         <div className="current-lexicon">
           <span className="lexicon-text">{props.currentLexicon}</span>
+          <ArrowRight className='arrowRight'/>
           {isCurrentLexiconOfficial() && <span className="lexiconVerify">Official</span>}
-        </div>
-          <CaretDown className='caretDown'/>
-      </div>
-      <div className="dropdown-content">
-        {dropDownItems}
-        <div onClick={() => props.setShowModal(true)} className="btn-modal">
-          <AddNewIMG className="addNewIMG"/>
-          <span className="addNewText">
-            Add New
-          </span>
         </div>
       </div>
     </div>

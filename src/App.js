@@ -2,6 +2,7 @@ import React, { useState, useEffect, } from 'react';
 import UserTextInput from './UserTextInput/UserTextInput.js';
 import NumberSelector from './NumberSelector/NumberSelector.js';
 import PopUp from './PopUp/PopUp.js'
+import Homepage from './Homepage/Homepage.js';
 import Results from './Results/Results.js';
 import Header from './Header/Header.js';
 import Footer from './Footer/Footer.js';
@@ -15,7 +16,7 @@ const MAX_NUM_CHALLENGES = 4;
 function App() {
   const [wordsArray, setWordsArray] = useState(new Array(MAX_NUM_CHALLENGES).fill("")); //array containing the words to judge
   const [numWordsSelected, setNumWordsSelected] = useState(4);
-  const [appState, setAppState] = useState('NumberSelector');
+  const [appState, setAppState] = useState('Homepage'); 
   const [lexiconDictionary, setLexiconDictionary] = useState({}); //an object that holds all Lexicons in the format 'lexiconName : {name: ..., size: ..., array : ...}'
   const [currentLexicon, setCurrentLexicon] = useState('IEL22');
   const [showModal, setShowModal] = useState(false);
@@ -69,6 +70,7 @@ function App() {
           case 'NumberSelector': return <NumberSelector onClick={handleNumberSelected} />;
           case 'TextInput': return <UserTextInput setWordsArray={(newArray) => setWordsArray(newArray)} wordsArray = {wordsArray} numWords={numWordsSelected} setAppState={(newAppState) => setAppState(newAppState)} />;
           case 'Results' : return <Results wordsArray={wordsArray} judgeResult={getResult(wordsArray)} returnToNumberSelector={() => setAppState('NumberSelector')} />;
+          case 'Homepage': return <Homepage/>;
           default : return <p>Test</p>;
         }
   }
@@ -87,12 +89,12 @@ function App() {
 
   return (
     <div className="App">
-      <Header lexiconData={lexiconData} setShowModal={setShowModal} setCurrentLexicon={setCurrentLexicon} currentLexicon={currentLexicon} />
+      <Header/>
       <div className="container">
         {/* {showModal && <PopUp addLexicon={addLexicon} setCurrentLexicon={setCurrentLexicon} showModal={showModal} setShowModal={setShowModal}/>} */}
         {activeComponent}
       </div>
-      <Footer />
+      <Footer lexiconData={lexiconData} setShowModal={setShowModal} setCurrentLexicon={setCurrentLexicon} currentLexicon={currentLexicon} />
     </div>
   );
 }
