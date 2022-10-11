@@ -9,11 +9,11 @@ function Homepage(props) {
                 <Logo height={300}/> 
                 <br/> 
                 <h1 className="homepage--title">Zebra Word Judge</h1>
-                <button className="change_btn">Update Lexicon</button> 
+                <button className="change_btn" onClick={() => props.setAppState('Updatepage')}>Update Lexicon</button> 
                 <br/> 
-                <button className="continue_btn">Continue</button>  
+                <button className="continue_btn" onClick={() => props.setAppState('NumberSelector')}>Continue</button>   
             </div>
       </div>
-    );
+    ); 
 }
 export default Homepage;

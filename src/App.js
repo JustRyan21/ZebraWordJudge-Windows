@@ -3,6 +3,7 @@ import UserTextInput from './UserTextInput/UserTextInput.js';
 import NumberSelector from './NumberSelector/NumberSelector.js';
 import PopUp from './PopUp/PopUp.js'
 import Homepage from './Homepage/Homepage.js';
+import Updatepage from './Updatepage/Updatepage.js';
 import Results from './Results/Results.js';
 import Header from './Header/Header.js';
 import Footer from './Footer/Footer.js';
@@ -70,8 +71,9 @@ function App() {
           case 'NumberSelector': return <NumberSelector onClick={handleNumberSelected} />;
           case 'TextInput': return <UserTextInput setWordsArray={(newArray) => setWordsArray(newArray)} wordsArray = {wordsArray} numWords={numWordsSelected} setAppState={(newAppState) => setAppState(newAppState)} />;
           case 'Results' : return <Results wordsArray={wordsArray} judgeResult={getResult(wordsArray)} returnToNumberSelector={() => setAppState('NumberSelector')} />;
-          case 'Homepage': return <Homepage/>;
-          default : return <p>Test</p>;
+          case 'Homepage': return <Homepage setAppState={(newAppState) => setAppState(newAppState)}/>;
+          case 'Updatepage': return <Updatepage setAppState={(newAppState) => setAppState(newAppState)} lexiconData={lexiconData} setShowModal={setShowModal} setCurrentLexicon={setCurrentLexicon} currentLexicon={currentLexicon}/>;
+          default : return <p>Test</p>; 
         }
   }
 
@@ -89,14 +91,13 @@ function App() {
 
   return (
     <div className="App">
-      <Header/>
+      <Header setAppState={(newAppState) => setAppState(newAppState)}/>
       <div className="container">
-        {/* {showModal && <PopUp addLexicon={addLexicon} setCurrentLexicon={setCurrentLexicon} showModal={showModal} setShowModal={setShowModal}/>} */}
         {activeComponent}
       </div>
       <Footer lexiconData={lexiconData} setShowModal={setShowModal} setCurrentLexicon={setCurrentLexicon} currentLexicon={currentLexicon} />
     </div>
-  );
+  );  
 }
 
 export default App;

@@ -8,10 +8,10 @@ function Header(props) {
     return (
         <header className="header"> 
             <div className="header--div">
-                <Logo height={80}/>
-                <h2 className="header--title">Zebra Word Judge</h2>
+                <Logo height={80} onClick={() => props.setAppState('Homepage')}/>
+                <h2 className="header--title" onClick={() => props.setAppState('Homepage')}>Zebra Word Judge</h2>
                 <FontAwesomeIcon className="header--menu" icon={faBars} size="2x"/>
-            </div>
+            </div> 
       </header>
 
     );

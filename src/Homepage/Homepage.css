@@ -24,11 +24,11 @@
     border: 2px solid black; 
     padding: 1rem 7.5rem; 
     margin-bottom: 3rem;
-    border-radius: 2rem;  
+    border-radius: 2rem;
 }
 
 .change_btn:hover{
-    background-color: #006885;
+    background-color: #006885; 
     color:white; 
     transition: all .2s ease-in;
 }
