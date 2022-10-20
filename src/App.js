@@ -10,6 +10,8 @@ import Footer from './Footer/Footer.js';
 import './App.css';
 import sendAsync from '../renderer.js';
 import {DEFAULT_LEXICON} from "./CONSTANTS";
+import { OFFICIAL_LEXICONS } from './CONSTANTS';
+import sha256 from 'js-sha256'; 
 
 const MAX_NUM_CHALLENGES = 4;
 
@@ -28,22 +30,40 @@ function App() {
     }).catch(e => console.log(e));
   }
 
-  const getHash = () => {return '1'}
-  const checkIsOfficial = () => {return true}
-  const chunkify = () => {['sdsadasdasdasdad']}
+  //checks if lexicon is official
+  const checkIsOfficial = (name, hash) => {
+    for(let i=0; i<OFFICIAL_LEXICONS.length; i++) {
+        if(name === OFFICIAL_LEXICONS[i].officialName && hash === OFFICIAL_LEXICONS[i].officialHash) {
+            return true;
+        }
+    }
+    return false;
+  }
+
+  const chunkify = (lexiconWords) => {
+    var wordsArray = [];
+    if(lexiconWords.length < 10000000) {
+        for(let i=0; i < lexiconWords.length; i+=1000000) {
+            wordsArray.push(lexiconWords.substring(i, Math.min(lexiconWords.length,  i + 1000000)));
+        }
+    } else {
+        throw new Error("Lexicon Too Large");
+    }
+    return wordsArray;
+  }
 
   const storeLexicon = (lexiconName, lexiconChunks, lexiconHash) => {
     for(let i=0; i < lexiconChunks.length; i++) {
-      send("INSERT into lexicon (Name, Wordlist, Hash) VALUES (" + lexiconName + "-" + i + "," + lexiconChunks[i] + "," + lexiconHash + ")");
+      send("INSERT into lexicon (Name, Wordlist, Hash) VALUES ('" + lexiconName + "-" + i + "','" + lexiconChunks[i] + "','" + lexiconHash + "')");
     }
   }
 
   //gets lexicon chunks from DB, joins them into large string, then splits into array and updates currentLexicon
   const getWordlistFromDB = async () => {
       const sql = "SELECT Wordlist FROM lexicon WHERE NAME LIKE NAME";
+      // const sql = "SELECT Wordlist FROM lexicon";
       sendAsync(sql).then((result) => {
-        setResponses(result);
-        if(result.length) {
+        if(result.length > 0) {
           var joinedWordlist = "";
           for(let i=0; i<result.length; i++) {
               joinedWordlist += result[i].Wordlist;
@@ -51,7 +71,7 @@ function App() {
           var lexiconWords = joinedWordlist.split(/\r?\n/);
           setCurrentLexicon((currentLexicon) => ({...currentLexicon, wordList : lexiconWords, size : lexiconWords.length}));
         } else {
-        console.log("Unable to find");
+          console.log("Unable to find");
         }
       }).catch(e => console.log(e));
   }
@@ -72,7 +92,7 @@ function App() {
               // deleteLexiconFromDB();      for some reason causes infinite render loop
               storeLexicon(lexiconName, chunks, hash).then(() => {
                   setCurrentLexicon({...currentLexicon, name : lexiconName, isOfficial : isOfficial, hash : hash});
-                  // getWordlistFromDB();
+                  getWordlistFromDB();
               }).catch(() => {throw new Error("Store Lexicon Error"); return -1;});
           }).catch(() => {throw new Error("Fetch Lexicon Error"); return -1;});
       } catch (error) {
@@ -83,11 +103,51 @@ function App() {
       return 1;
   }
 
+  const getHash = (fetchedLexicon) => {
+    var newLineRegex = /\r\n/g;
+    var combinedString = fetchedLexicon.replace(newLineRegex, "\n");  
+    var lexiconHash = sha256(combinedString);
+    console.log("lexHash", lexiconHash);
+    return lexiconHash;
+}
+
+  const getHashFromDB = () => {
+    const sql = "SELECT Name, Hash FROM lexicon";
+    sendAsync(sql).then((result) => {
+      if(result.length > 0) {
+        var name = ((result[0].Name).split('-'))[0];
+        var hashValue = result[0].Hash;
+        const isOfficial = checkIsOfficial(name, hashValue);
+        setCurrentLexicon((currentLexicon) => ({...currentLexicon, hash : hashValue, isOfficial : isOfficial}));
+      } else {
+        console.log("Unable to find hash value in DB");
+      }
+    }).catch(e => console.log(e));
+  }
+
+  const getNameFromDB = () => {
+    const sql = "SELECT Name FROM lexicon";
+    sendAsync(sql).then((result) => {
+      if(result.length > 0) {
+        var lexiconName = ((result[0].Name).split('-'))[0];
+        setCurrentLexicon((currentLexicon) => ({...currentLexicon, name : lexiconName}));
+      } else {
+        console.log("Unable to find hash value in DB");
+      }
+    }).catch(e => console.log(e));
+  }
+
+  const setCurrentLexiconDetails = () => {
+    getHashFromDB();
+    getNameFromDB();
+    getWordlistFromDB();
+  }
+
   const initCurrentLexicon = async () => {
     const sql = "SELECT * from Lexicon";
     sendAsync(sql).then((result) => {
       if(result.length > 0) {
-        console.log("Lex Found: ", result);
+        setCurrentLexiconDetails();
       } else {
         var lexiconName = DEFAULT_LEXICON.name;
         var lexiconURL = DEFAULT_LEXICON.url;
@@ -96,11 +156,11 @@ function App() {
     }).catch(e => console.log(e));
   }
 
+  console.log(currentLexicon);
+
   useEffect(() => {
-    // send("SELECT * from History");
-    initCurrentLexicon()
-    // send("SELECT * from History where words like 'sadsad'");
-    // send("INSERT into history values ('-1', 'testtest', 'testtest', 0);");
+    // deleteLexiconFromDB();
+    initCurrentLexicon();
   }, []);
 
   const loadLexicon = async (Lexicon) => {
@@ -109,7 +169,7 @@ function App() {
       console.log(response);
       throw new Error("Invalid URL!");
     }
-    return (await response.text()).split(/\r?\n/);
+    return (await response.text());
   };
 
     //fetches lexicon from URL

@@ -67,6 +67,6 @@ module.exports = {
     path: path.resolve(__dirname, 'build', 'js'),
   },
   externals: {
-    sqlite3: 'commonjs sqlite3'
+    sqlite3: 'commonjs sqlite3',
   }
 };
