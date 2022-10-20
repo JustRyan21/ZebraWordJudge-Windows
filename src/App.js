@@ -184,7 +184,7 @@ function App() {
   }
 
   const getResult = (judgeWords) => {
-    return judgeWords.filter(word => word !== "").every(word => (lexiconDictionary[currentLexicon].words).includes(word));
+    return judgeWords.filter(word => word !== "").every(word => (currentLexicon.wordList).includes(word));
   }
 
   const handleNumberSelected = (event) => {
