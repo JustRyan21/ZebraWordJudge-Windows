@@ -10,7 +10,7 @@ ipcMain.on('asynchronous-message', (event, arg) => {
     });
 });
 
-const database = new sqlite3.Database('./database.sqlite3', (err) => {
+const database = new sqlite3.Database('./database.db', (err) => {
     if (err) console.error('Database opening error: ', err);
 });
 
