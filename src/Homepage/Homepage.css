@@ -1,0 +1,60 @@
+.homepage_container
+{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.homepage--title {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    margin-top: 3rem;
+    margin-bottom: 3rem;  
+    font-size: 3rem; 
+    text-align: center; 
+    font-family: lora, serif;
+    color: #006885;
+    margin-left: auto;
+}
+
+.change_btn {
+    font-size: 1.5em;
+    background-color: white;
+    color: #006885;
+    border: 2px solid black; 
+    padding: 1rem 7.5rem; 
+    margin-bottom: 3rem;
+    border-radius: 2rem;
+}
+
+.change_btn:hover{
+    background-color: #006885; 
+    color:white; 
+    transition: all .2s ease-in;
+}
+
+.change_btn:focus{
+    background-color: rgb(255, 255, 255);
+    color:#006885;
+}
+
+.continue_btn {
+    font-size: 1.5em;
+    background-color: #006885;
+    color: white;
+    border: 2px solid black;
+    padding: 1rem 7.5rem; 
+    margin-bottom: 1rem;
+    border-radius: 2rem;  
+}
+
+.continue_btn:hover{
+    background-color: rgb(255, 255, 255);
+    color:#006885;
+    transition: all .2s ease-in;
+}
+
+.continue_btn:focus{
+    background-color: rgb(255, 255, 255);
+    color:#006885;
+}

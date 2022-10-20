@@ -1,8 +1,8 @@
 import React from "react";
 import './DropdownMenu.css';
-// import CaretDown from '../images/caret-down.svg';
-// import AddNewIMG from '../images/square-plus-solid.svg';
-// import ArrowRight from '../images/chevron-right-solid.svg';
+import CaretDown from '../images/caret-down.svg';
+import AddNewIMG from '../images/square-plus-solid.svg';
+import ArrowRight from '../images/chevron-right-solid.svg';
 
 function DropdownMenu(props) {
   const toCommas = value => {
@@ -43,20 +43,11 @@ function DropdownMenu(props) {
     <div className="dropdown">
       <div className="dropbtn">
         <span className="drop-btn-text">Lexicon</span>
-        {/* <ArrowRight className='arrowRight'/> */}
+        <ArrowRight className='arrowRight'/>
         <div className="current-lexicon">
           <span className="lexicon-text">{props.currentLexicon}</span>
+          <ArrowRight className='arrowRight'/>
           {isCurrentLexiconOfficial() && <span className="lexiconVerify">Official</span>}
-        </div>
-          {/* <CaretDown className='caretDown'/> */}
-      </div>
-      <div className="dropdown-content">
-        {dropDownItems}
-        <div onClick={() => props.setShowModal(true)} className="btn-modal">
-          {/* <AddNewIMG className="addNewIMG"/>  */}
-          <span className="addNewText">
-            Add New
-          </span>
         </div>
       </div>
     </div>

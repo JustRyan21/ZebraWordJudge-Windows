@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import './UserTextInput.css';
 import TextBox from '../TextBox/TextBox.js';
 import Notification from '../Notification/Notification.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSync } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 function UserTextInput(props) {
     const wordsArray = props.wordsArray
@@ -134,13 +137,14 @@ function UserTextInput(props) {
     
     const instructionText = (numWords === 1) ? "Enter a word" : "Enter " + numWords + " words";
 
-    return (
+    return (  
         <div className="UserTextInput center">
             <form id="searchWords">
                 <h1 className="UserTextInput-h1">{instructionText}</h1>
                 <div className="btn-row">
-                    <button id="numWords-btn" onClick={handleReturnToNum}><i className="fa fa-arrow-left" ></i> <span id="backtext"> Back</span></button>
-                    <button id="clear-btn" onClick={clearAllText}> Clear <i className="fa fa-refresh" ></i></button>
+                    
+                    <button id="numWords-btn" onClick={handleReturnToNum}><FontAwesomeIcon icon={faArrowLeft}/><span id="backtext"> Back</span></button>
+                    <button id="clear-btn" onClick={clearAllText}> Clear <FontAwesomeIcon icon={faSync}/></button>
                 </div>
                 {textBoxList}
                 <Notification id='userInput-ErrorNotification' errorText={getEmptyErrorText()} status='error'/> 
