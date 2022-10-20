@@ -5,7 +5,7 @@ import DropdownMenu from '../DropdownMenu/DropdownMenu.js'
 function Footer(props) {
     return (
         <footer className="footer">
-            <DropdownMenu lexiconData={props.lexiconData} setShowModal={props.setShowModal} currentLexicon={props.currentLexicon} setCurrentLexicon={(newLexicon) => props.setCurrentLexicon(newLexicon)} addLexicon={props.addLexicon} />
+            <DropdownMenu setShowModal={props.setShowModal} currentLexicon={props.currentLexicon} setCurrentLexicon={(newLexicon) => props.setCurrentLexicon(newLexicon)} />
         </footer>
     );
 }
