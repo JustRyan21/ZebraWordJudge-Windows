@@ -88,6 +88,8 @@ export default function SearchHistory() {
         getSearchHistoryFromDB();
     }, []);
 
+    console.log(searchHistory);
+
     const handleExport = () => {
         var exampleEmail = 'support@example.com'
         var subject = 'Zebra Word Judge History'

@@ -148,6 +148,31 @@ function App() {
           throw new Error("Error Inserting Search Entry into DB");
       }
   }
+  
+  const deleteOldSearchesFromSearchHistory = () => {
+      var oneYearOldSearches = []
+      const sql = "SELECT * FROM history";
+      sendAsync(sql).then((results) => {
+          if(results.length) {
+            for(let i=0; i<results.length; i++) {
+                let timestamp = results[i].timestamp;
+                let date = new Date(timestamp);
+                let secondsSinceSearch = Math.floor((new Date() - date) / 1000);
+                let yearsSinceSearch = Math.floor(secondsSinceSearch / 31536000);
+                if (yearsSinceSearch) {
+                    oneYearOldSearches.push(timestamp);
+                } else {
+                    break;
+                }
+            }
+          }
+      }).then(() => {
+        for(let i=0; i<oneYearOldSearches.length; i++) {
+          var sql2 = "DELETE FROM history WHERE timestamp='" + oneYearOldSearches[i] + "'";
+          sendAsync(sql2).then((result) => {}).catch(e => console.log(e));
+        }
+      }).catch(e => console.log(e));
+  }
 
   const initCurrentLexicon = async () => {
     const sql = "SELECT * from Lexicon";
@@ -165,6 +190,7 @@ function App() {
   useEffect(() => {
     // deleteLexiconFromDB();    
     initCurrentLexicon();
+    deleteOldSearchesFromSearchHistory();
   }, []);
 
   const loadLexicon = async (Lexicon) => {
