@@ -24,11 +24,11 @@ function myFunction() {
 function HamburgerMenu(props) {
   return (
 <div class="hamburgerdropdown">
-  <button onClick={myFunction} class="hamburgerdropbtn">Dropdown</button>
+  <FontAwesomeIcon  onClick={myFunction} className="hamburgerdropbtn" icon={faBars} size="2x"/>
   <div id="hamburgermyDropdown" class="hamburgerdropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
+    <a href="#" onClick={() => props.setAppState('Homepage')}>Home</a>
+    <a href="#" onClick={() => props.setAppState('Updatepage')}>Change Lexicon</a>
+    <a href="#" onClick={() => props.setAppState('SearchHistory')}>View History</a>
   </div>
 </div>
 
