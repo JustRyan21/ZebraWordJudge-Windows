@@ -24,6 +24,7 @@ function createWindow() {
             worldSafeExecuteJavaScript: true,
             contextIsolation: false,
             enableRemoteModule: true,
+            // preload: path.join(__dirname, "preload.js")
         }
     })
 
@@ -54,8 +55,11 @@ app.whenReady().then(createWindow);
 //     }
 // });
 
+
+const ignoreDB = /database|[/\\]\./
 require('electron-reload')(__dirname, {
-    electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
+    electron: path.join(__dirname, 'node_modules', '.bin', 'electron'), 
+    ignored: [ignoreDB]
 });
 
 app.on('window-all-closed', function () {

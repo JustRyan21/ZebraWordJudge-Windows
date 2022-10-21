@@ -1,0 +1,69 @@
+/* .text {
+    font-size: 16;
+}
+.wordListColumn {
+    width: '50%';
+}
+.date {
+    font-size: 14;
+    font-style: 'italic';
+}
+.container {
+    border-color: 'black';
+    border-top-width: 2;
+    border-bottom-width: 0;
+}
+.banner {
+    flex-direction: 'row';
+    justify-content: 'space-between';
+    align-items: 'center';
+    padding: 3 7;
+    background-color: '#E7FAFF';
+}
+.iconCorrect {
+    color: 'green';
+    border: '2px black solid';
+}
+.iconIncorrect {
+    color: 'red';
+}
+.bannerText {
+    font-size: 20;
+    font-weight: 'bold';
+}
+.wordList {
+    flex-direction: 'row';
+    flex-wrap: 'wrap';
+    justify-content: 'space-between';
+    padding: 8 0 8 25;
+    background-color: '#FBFEFF';
+}
+.iconAndResult {
+    flex-direction: 'row';
+    justify-content: 'center';
+    align-items: 'center';
+}
+.circle {
+    width: 12;
+    height: 12;
+    border-radius: 12 / 2;
+    background-color: 'red';
+    border-color: 'black';
+    border-width: 2;
+    margin-right: 5;
+}
+.circleCorrect {
+    background-color: 'green';
+}
+.circleIncorrect {
+    background-color: 'red';
+}
+.LexiconAndDate {
+    flex-direction: 'row';
+    justify-content: 'space-between';
+    align-items: 'center';
+    width: '47%';
+}
+.selected {
+    background-color: '#87CEFA';
+} */

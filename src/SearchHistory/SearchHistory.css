@@ -1,0 +1,64 @@
+/* .bg {
+    background-color: 'white';
+    flex: 1;
+}
+
+.clearButton {
+    flex-direction: 'row';
+}
+
+.buttonRow {
+    flex-direction: 'row';
+    justify-content: 'space-between';
+    padding: 0 10px;
+    padding-top: 13px;
+}
+
+.btnDisabled {
+    color: '#EBEBE4';
+}
+
+.title {
+    font-weight: 'bold';
+    font-size: 26px;
+}
+
+.titleContainer {
+    width : 480;
+    height : 55;
+    flex-direction: "row";
+    align-self : "center";
+    align-items: "center";
+    justify-content: "center";
+    padding: 10 0;
+    border-bottom: 0.5px;
+}
+
+.clearText {
+    margin: 0 7;
+    font-size: 15;
+}
+
+.exportText {
+    font-weight: 'bold';
+    font-size: 26px;
+    flex-direction: 'row';
+    padding-right: 5;
+}
+
+.exportButton {
+    flex-direction: 'row';
+}
+.searches {
+    margin-bottom: 30;
+}
+
+.historyFooter {
+    position: 'absolute';
+    bottom : -35;
+    left : 0;
+    right : 0;
+    height: 65;
+    background-color : "white";
+    border-top : 0.5px;
+} */
