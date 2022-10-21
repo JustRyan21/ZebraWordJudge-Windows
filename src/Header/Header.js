@@ -3,6 +3,7 @@ import './Header.css';
 import Logo from '../images/Logo.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
+import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
 
 function Header(props) {
     return (
@@ -10,8 +11,12 @@ function Header(props) {
             <div className="header--div">
                 <Logo height={80} onClick={() => props.setAppState('Homepage')}/>
                 <h2 className="header--title" onClick={() => props.setAppState('Homepage')}>Zebra Word Judge</h2>
-                <FontAwesomeIcon className="header--menu" icon={faBars} size="2x"/>
+                
             </div> 
+
+            <div>
+                <HamburgerMenu setAppState={(newAppState) => props.setAppState(newAppState)}/>
+            </div>
       </header>
 
     );
