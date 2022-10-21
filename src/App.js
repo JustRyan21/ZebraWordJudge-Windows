@@ -12,20 +12,19 @@ import sendAsync from '../renderer.js';
 import {DEFAULT_LEXICON} from "./CONSTANTS";
 import { OFFICIAL_LEXICONS } from './CONSTANTS';
 import sha256 from 'js-sha256'; 
+import SearchHistory from './SearchHistory/SearchHistory.js';
 
 const MAX_NUM_CHALLENGES = 4;
 
 function App() {
   const [wordsArray, setWordsArray] = useState(new Array(MAX_NUM_CHALLENGES).fill("")); //array containing the words to judge
   const [numWordsSelected, setNumWordsSelected] = useState(4);
-  const [appState, setAppState] = useState('Homepage'); 
-  const [currentLexicon, setCurrentLexicon] = useState({name : "asd", wordList : [], isOfficial : true, hash : "", size : 1});
+  const [appState, setAppState] = useState('SearchHistory'); 
+  const [currentLexicon, setCurrentLexicon] = useState({name : "", wordList : [], isOfficial : false, hash : "", size : 0});
   const [showModal, setShowModal] = useState(false);
-  const [responses, setResponses] = useState([]);
 
    function send(data) {
     sendAsync(data).then((result) => {
-      console.log("response: ", result);
       return result;
     }).catch(e => console.log(e));
   }
@@ -60,8 +59,7 @@ function App() {
 
   //gets lexicon chunks from DB, joins them into large string, then splits into array and updates currentLexicon
   const getWordlistFromDB = async () => {
-      const sql = "SELECT Wordlist FROM lexicon WHERE NAME LIKE NAME";
-      // const sql = "SELECT Wordlist FROM lexicon";
+      const sql = "SELECT Wordlist FROM lexicon";
       sendAsync(sql).then((result) => {
         if(result.length > 0) {
           var joinedWordlist = "";
@@ -76,12 +74,11 @@ function App() {
       }).catch(e => console.log(e));
   }
 
-   const deleteLexiconFromDB = () => {
-    const sql = "DELETE from lexicon";
+  const deleteLexiconFromDB = () => {
+    const sql = "DELETE from lexicon where name like name";
     sendAsync(sql).then((result) => {
-      console.log("response: ", result);
     }).catch(e => console.log(e));
-    }
+  }
 
   const changeLexicon = async (lexiconName, lexiconURL) => {
       try {
@@ -89,7 +86,7 @@ function App() {
               var hash = getHash(fetchedLexicon); // hash fetched lexicon
               var isOfficial = checkIsOfficial(lexiconName, hash); //compare name + hash to our official list
               var chunks = chunkify(fetchedLexicon);
-              // deleteLexiconFromDB();      for some reason causes infinite render loop
+              deleteLexiconFromDB();    
               storeLexicon(lexiconName, chunks, hash).then(() => {
                   setCurrentLexicon({...currentLexicon, name : lexiconName, isOfficial : isOfficial, hash : hash});
                   getWordlistFromDB();
@@ -107,7 +104,6 @@ function App() {
     var newLineRegex = /\r\n/g;
     var combinedString = fetchedLexicon.replace(newLineRegex, "\n");  
     var lexiconHash = sha256(combinedString);
-    console.log("lexHash", lexiconHash);
     return lexiconHash;
 }
 
@@ -143,6 +139,16 @@ function App() {
     getWordlistFromDB();
   }
 
+  const addSearchEntry = (timestamp, wordList, lexicon, result) => {
+      var words = wordList.join(" ").trim();
+      try {
+          const sql = "INSERT into history (timestamp, words, lexicon, result) VALUES ('"+timestamp+"','"+words+"','"+lexicon+"',"+result+");"
+        sendAsync(sql).then((result) => {console.log(result)});
+      } catch {
+          throw new Error("Error Inserting Search Entry into DB");
+      }
+  }
+
   const initCurrentLexicon = async () => {
     const sql = "SELECT * from Lexicon";
     sendAsync(sql).then((result) => {
@@ -156,17 +162,14 @@ function App() {
     }).catch(e => console.log(e));
   }
 
-  console.log(currentLexicon);
-
   useEffect(() => {
-    // deleteLexiconFromDB();
+    // deleteLexiconFromDB();    
     initCurrentLexicon();
   }, []);
 
   const loadLexicon = async (Lexicon) => {
     const response = await fetch(Lexicon);
     if(!response.ok) {
-      console.log(response);
       throw new Error("Invalid URL!");
     }
     return (await response.text());
@@ -184,7 +187,9 @@ function App() {
   }
 
   const getResult = (judgeWords) => {
-    return judgeWords.filter(word => word !== "").every(word => (currentLexicon.wordList).includes(word));
+    var result = judgeWords.filter(word => word !== "").every(word => (currentLexicon.wordList).includes(word));
+    addSearchEntry((new Date()).toString(), judgeWords, currentLexicon.name, (result === true) ? 1 : 0);
+    return result;
   }
 
   const handleNumberSelected = (event) => {
@@ -200,13 +205,10 @@ function App() {
           case 'Results' : return <Results wordsArray={wordsArray} judgeResult={getResult(wordsArray)} returnToNumberSelector={() => setAppState('NumberSelector')} />;
           case 'Homepage': return <Homepage setAppState={(newAppState) => setAppState(newAppState)} currentLexicon={currentLexicon} />;
           case 'Updatepage': return <Updatepage setAppState={(newAppState) => setAppState(newAppState)} setShowModal={setShowModal} setCurrentLexicon={setCurrentLexicon} currentLexicon={currentLexicon}/>;
+          case 'SearchHistory' : return <SearchHistory />
           default : return <p>Test</p>; 
         }
   }
-
-  // loads default lexicons on initial render
-  useEffect(() => {
-  }, []);
 
   const activeComponent = getActiveComponent();
 
