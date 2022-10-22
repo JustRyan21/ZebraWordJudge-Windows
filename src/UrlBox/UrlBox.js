@@ -11,6 +11,7 @@ function UrlBox(props) {
               variant="outlined"
               fullWidth
               name="URL"
+              placeholder="Enter URL here"
             />
           </div>
         </div>

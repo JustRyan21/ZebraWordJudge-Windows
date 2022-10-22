@@ -20,7 +20,7 @@ function Updatepage(props) {
   //returns confirmation if lexicon was successfuly added
   const handleAddLexicon = async () => {
     setLoadState('downloading');
-    var downloadStatus = await props.addLexicon(getName(), urlText, false);
+    var downloadStatus = await props.addLexicon(getName(), urlText);
     setLoadState('notDownloading');
     return downloadStatus;
  };  
@@ -48,7 +48,6 @@ function Updatepage(props) {
     if(downloadStatus === 1) {
       //successfully downloaded
       setLoadState('downloaded');
-      props.setCurrentLexicon(getName());
     } else {
       setErrorText("Download Failed! Please try again.");
       showError();

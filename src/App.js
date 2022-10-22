@@ -19,7 +19,7 @@ const MAX_NUM_CHALLENGES = 4;
 function App() {
   const [wordsArray, setWordsArray] = useState(new Array(MAX_NUM_CHALLENGES).fill("")); //array containing the words to judge
   const [numWordsSelected, setNumWordsSelected] = useState(4);
-  const [appState, setAppState] = useState('Updatepage'); 
+  const [appState, setAppState] = useState('Homepage'); 
   const [currentLexicon, setCurrentLexicon] = useState({name : "", wordList : [], isOfficial : false, hash : "", size : 0});
   const [showModal, setShowModal] = useState(false);
 
@@ -51,9 +51,10 @@ function App() {
     return wordsArray;
   }
 
-  const storeLexicon = (lexiconName, lexiconChunks, lexiconHash) => {
+  const storeLexicon = async (lexiconName, lexiconChunks, lexiconHash) => {
     for(let i=0; i < lexiconChunks.length; i++) {
-      send("INSERT into lexicon (Name, Wordlist, Hash) VALUES ('" + lexiconName + "-" + i + "','" + lexiconChunks[i] + "','" + lexiconHash + "')");
+      var sql = "INSERT into lexicon (Name, Wordlist, Hash) VALUES ('" + lexiconName + "-" + i + "','" + lexiconChunks[i] + "','" + lexiconHash + "')";
+      sendAsync(sql).then((result) => {}).catch(e => console.log(e));
     }
   }
 
@@ -74,23 +75,23 @@ function App() {
       }).catch(e => console.log(e));
   }
 
-  const deleteLexiconFromDB = () => {
-    const sql = "DELETE from lexicon where name like name";
+  const deleteLexiconFromDB = async () => {
+    const sql = "DELETE from lexicon";
     sendAsync(sql).then((result) => {
     }).catch(e => console.log(e));
   }
 
+  //https://raw.githubusercontent.com/Dylan-Early/Zebra/main/NZL21.txt
   const changeLexicon = async (lexiconName, lexiconURL) => {
       try {
           await fetchLexicon(lexiconURL).then(fetchedLexicon => {
               var hash = getHash(fetchedLexicon); // hash fetched lexicon
               var isOfficial = checkIsOfficial(lexiconName, hash); //compare name + hash to our official list
               var chunks = chunkify(fetchedLexicon);
+              var lexiconWords = fetchedLexicon.split(/\r?\n/);
               deleteLexiconFromDB();    
-              storeLexicon(lexiconName, chunks, hash).then(() => {
-                  setCurrentLexicon({...currentLexicon, name : lexiconName, isOfficial : isOfficial, hash : hash});
-                  getWordlistFromDB();
-              }).catch(() => {throw new Error("Store Lexicon Error"); return -1;});
+              storeLexicon(lexiconName, chunks, hash).catch(() => {throw new Error("Store Lexicon Error"); return -1;});
+              setCurrentLexicon({...currentLexicon, wordList : lexiconWords, size : lexiconWords.length, name : lexiconName, isOfficial : isOfficial, hash : hash});
           }).catch(() => {throw new Error("Fetch Lexicon Error"); return -1;});
       } catch (error) {
           console.log("Error storing lex");
@@ -100,6 +101,8 @@ function App() {
       return 1;
   }
 
+  console.log("curr", currentLexicon);
+
   const getHash = (fetchedLexicon) => {
     var newLineRegex = /\r\n/g;
     var combinedString = fetchedLexicon.replace(newLineRegex, "\n");  
@@ -107,7 +110,7 @@ function App() {
     return lexiconHash;
 }
 
-  const getHashFromDB = () => {
+  const getHashFromDB = async () => {
     const sql = "SELECT Name, Hash FROM lexicon";
     sendAsync(sql).then((result) => {
       if(result.length > 0) {
@@ -121,7 +124,7 @@ function App() {
     }).catch(e => console.log(e));
   }
 
-  const getNameFromDB = () => {
+  const getNameFromDB = async () => {
     const sql = "SELECT Name FROM lexicon";
     sendAsync(sql).then((result) => {
       if(result.length > 0) {
@@ -139,7 +142,7 @@ function App() {
     getWordlistFromDB();
   }
 
-  const addSearchEntry = (timestamp, wordList, lexicon, result) => {
+  const addSearchEntry = async (timestamp, wordList, lexicon, result) => {
       var words = wordList.join(" ").trim();
       try {
           const sql = "INSERT into history (timestamp, words, lexicon, result) VALUES ('"+timestamp+"','"+words+"','"+lexicon+"',"+result+");"
@@ -148,8 +151,10 @@ function App() {
           throw new Error("Error Inserting Search Entry into DB");
       }
   }
+
+
   
-  const deleteOldSearchesFromSearchHistory = () => {
+  const deleteOldSearchesFromSearchHistory = async () => {
       var oneYearOldSearches = []
       const sql = "SELECT * FROM history";
       sendAsync(sql).then((results) => {
@@ -174,6 +179,7 @@ function App() {
       }).catch(e => console.log(e));
   }
 
+  
   const initCurrentLexicon = async () => {
     const sql = "SELECT * from Lexicon";
     sendAsync(sql).then((result) => {
@@ -190,7 +196,6 @@ function App() {
   useEffect(() => {
     // deleteLexiconFromDB();    
     initCurrentLexicon();
-    deleteOldSearchesFromSearchHistory();
   }, []);
 
   const loadLexicon = async (Lexicon) => {
@@ -230,8 +235,11 @@ function App() {
           case 'TextInput': return <UserTextInput setWordsArray={(newArray) => setWordsArray(newArray)} wordsArray = {wordsArray} numWords={numWordsSelected} setAppState={(newAppState) => setAppState(newAppState)} />;
           case 'Results' : return <Results wordsArray={wordsArray} judgeResult={getResult(wordsArray)} returnToNumberSelector={() => setAppState('NumberSelector')} />;
           case 'Homepage': return <Homepage setAppState={(newAppState) => setAppState(newAppState)} currentLexicon={currentLexicon} />;
-          case 'Updatepage': return <Updatepage setAppState={(newAppState) => setAppState(newAppState)} setShowModal={setShowModal} setCurrentLexicon={setCurrentLexicon} currentLexicon={currentLexicon}/>;
-          case 'SearchHistory' : return <SearchHistory />
+          case 'Updatepage': return <Updatepage setAppState={(newAppState) => setAppState(newAppState)} setShowModal={setShowModal} setCurrentLexicon={setCurrentLexicon} currentLexicon={currentLexicon} addLexicon={changeLexicon}/>;
+          case 'SearchHistory' : {
+            deleteOldSearchesFromSearchHistory();
+            return <SearchHistory />
+          }
           default : return <p>Test</p>; 
         }
   }

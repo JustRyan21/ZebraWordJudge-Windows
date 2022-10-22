@@ -12,7 +12,6 @@ function DropdownMenu(props) {
         <ArrowRight className='arrowRight'/>
         <div className="current-lexicon">
           <span className="lexicon-text">{props.currentLexicon.name}</span>
-          <ArrowRight className='arrowRight'/>
           {props.currentLexicon.isOfficial && <span className="lexiconVerify">Official</span>}
         </div>
       </div>
