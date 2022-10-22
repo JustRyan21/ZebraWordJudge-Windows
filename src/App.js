@@ -81,7 +81,6 @@ function App() {
     }).catch(e => console.log(e));
   }
 
-  //https://raw.githubusercontent.com/Dylan-Early/Zebra/main/NZL21.txt
   const changeLexicon = async (lexiconName, lexiconURL) => {
       try {
           await fetchLexicon(lexiconURL).then(fetchedLexicon => {
@@ -100,8 +99,6 @@ function App() {
       console.log('Successfully stored in db: ', lexiconName);
       return 1;
   }
-
-  console.log("curr", currentLexicon);
 
   const getHash = (fetchedLexicon) => {
     var newLineRegex = /\r\n/g;
@@ -152,8 +149,6 @@ function App() {
       }
   }
 
-
-  
   const deleteOldSearchesFromSearchHistory = async () => {
       var oneYearOldSearches = []
       const sql = "SELECT * FROM history";
@@ -178,7 +173,6 @@ function App() {
         }
       }).catch(e => console.log(e));
   }
-
   
   const initCurrentLexicon = async () => {
     const sql = "SELECT * from Lexicon";

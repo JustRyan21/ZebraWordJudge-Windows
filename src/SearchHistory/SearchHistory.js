@@ -120,7 +120,7 @@ export default function SearchHistory() {
             <div className='titleContainer'>
                 <div onClick={handleExport} className="exportButton">
                 <h1 className="exportText">History</h1>
-                <FontAwesomeIcon icon={faFileExport} size={"2x"} className="exportText"/>
+                {/* <FontAwesomeIcon icon={faFileExport} size={"2x"} className="exportText"/> */}
             </div>
         </div>
         <div className="historyFooter">
