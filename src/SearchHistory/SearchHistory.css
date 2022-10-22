@@ -1,64 +1,73 @@
-/* .bg {
-    background-color: 'white';
+.bg {
+    background-color: white;
     flex: 1;
 }
 
+
 .clearButton {
-    flex-direction: 'row';
+    margin-left: 4rem;
+    margin-right: 4rem;
+    color: #ffffff;
+    display: inline;
+    flex-direction: row;
 }
 
 .buttonRow {
-    flex-direction: 'row';
-    justify-content: 'space-between';
+    color: #ffffff;
+    background-color: #006885;
+    flex-direction: row;
+    justify-content: space-between;
     padding: 0 10px;
-    padding-top: 13px;
 }
 
 .btnDisabled {
-    color: '#EBEBE4';
+    color: #ffffff;
 }
 
 .title {
-    font-weight: 'bold';
+    font-weight: bold;
     font-size: 26px;
 }
 
 .titleContainer {
-    width : 480;
-    height : 55;
-    flex-direction: "row";
-    align-self : "center";
-    align-items: "center";
-    justify-content: "center";
-    padding: 10 0;
+    width : 480px;
+    height : 55px;
+    flex-direction: row;
+    align-self : center;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
     border-bottom: 0.5px;
 }
 
 .clearText {
-    margin: 0 7;
-    font-size: 15;
+    color: #ffffff;
+    display: inline;
+    margin: 0 7px;
+    font-size: 15px;
 }
 
 .exportText {
-    font-weight: 'bold';
+    font-weight: bold;
     font-size: 26px;
-    flex-direction: 'row';
-    padding-right: 5;
+    flex-direction: row;
+    padding-right: 5px;
+    display: inline;
 }
 
 .exportButton {
-    flex-direction: 'row';
+    flex-direction: row;
 }
 .searches {
-    margin-bottom: 30;
+    margin: 0;
 }
 
 .historyFooter {
-    position: 'absolute';
-    bottom : -35;
-    left : 0;
-    right : 0;
-    height: 65;
-    background-color : "white";
-    border-top : 0.5px;
-} */
+    
+    display: inline;
+    position: relative;
+    bottom : 1;
+    background-color : white;
+
+}
+

@@ -13,10 +13,10 @@ export default function Search(props) {
     });
 
     return (
-        <div className="container" onClick={() => props.onClick(props.timestamp)}>
+        <div className="searchcontainer" onClick={() => props.onClick(props.timestamp)}>
             <div className={"banner " + (props.selected ? "selected" : "unselected")}>
                 <div className="iconAndResult">
-                    <div className={"circle " + (props.result === 1 ? "circleCorrect" : "circleIncorrect")}></div>
+                    <div id="status" className={"circle " + (props.result === 1 ? "circleCorrect" : "circleIncorrect")}></div>
                     <p className="bannerText">{props.result === 1 ? "ACCEPTABLE": "UNACCEPTABLE"}</p>
                 </div>
                 <div className="LexiconAndDate">

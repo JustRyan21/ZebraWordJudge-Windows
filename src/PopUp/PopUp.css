@@ -79,33 +79,18 @@
 }
 
 .download-btn {
+    border-radius: 2rem;
     font-size: 1.5em;
     background-color: #006885;
     color: white;
-    border: 2px solid black;
-    margin: 0 auto;
+    border: 2px solid rgba(0, 0, 0, 0);
     padding-top: 1rem;
     padding-bottom: 1rem;
     width:40%;
-    display: flex;
+
     justify-content: center;
 }
 
-@media screen and (max-width:480px)
-{
-    .download-btn {
-        font-size: 1.5em;
-        background-color: #006885;
-        color: white;
-        border: 2px solid black;
-        margin: 0 auto;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        width:90%;
-        display: flex;
-        justify-content: center;
-    }
-}
 .download-btn:hover{
     background-color: rgb(255, 255, 255);
     color:#006885;
