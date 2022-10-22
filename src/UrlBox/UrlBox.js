@@ -1,18 +1,17 @@
 import React from 'react';
-
 import './UrlBox.css';
 
 function UrlBox(props) {
     return (
         <div className="main">
           <div className="search">
-            {/* <TextField
+            <input className="search" type="text"
               id="outlined-basic"
               onChange={props.handleUrl}
               variant="outlined"
               fullWidth
-              label="URL"
-            /> */}
+              name="URL"
+            />
           </div>
         </div>
       ); 

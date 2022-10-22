@@ -19,7 +19,7 @@ const MAX_NUM_CHALLENGES = 4;
 function App() {
   const [wordsArray, setWordsArray] = useState(new Array(MAX_NUM_CHALLENGES).fill("")); //array containing the words to judge
   const [numWordsSelected, setNumWordsSelected] = useState(4);
-  const [appState, setAppState] = useState('SearchHistory'); 
+  const [appState, setAppState] = useState('Updatepage'); 
   const [currentLexicon, setCurrentLexicon] = useState({name : "", wordList : [], isOfficial : false, hash : "", size : 0});
   const [showModal, setShowModal] = useState(false);
 

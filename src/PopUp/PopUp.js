@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./PopUp.css";
 import UrlBox from '../UrlBox/UrlBox.js';
-// import validator from 'validator';
+import validator from 'validator';
 import Notification from '../Notification/Notification.js';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner.js';
 

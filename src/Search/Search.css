@@ -1,69 +1,80 @@
-/* .text {
+.text {
+    
     font-size: 16;
+    
+}
+
+#status
+{
+    display: inline-flex;
 }
 .wordListColumn {
-    width: '50%';
+    width: 100%;
 }
 .date {
+    display: inline;
     font-size: 14;
-    font-style: 'italic';
+    font-style: italic;
 }
-.container {
-    border-color: 'black';
-    border-top-width: 2;
-    border-bottom-width: 0;
+.searchcontainer {
 }
+
 .banner {
-    flex-direction: 'row';
-    justify-content: 'space-between';
-    align-items: 'center';
-    padding: 3 7;
-    background-color: '#E7FAFF';
+    border-top: 3px solid #000000;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 7px;
+    background-color: #E7FAFF;
 }
 .iconCorrect {
-    color: 'green';
-    border: '2px black solid';
+    display: inline;
+    color: green;
 }
 .iconIncorrect {
-    color: 'red';
+    display: inline;
+    color: red;
+
 }
 .bannerText {
+    display: inline;
     font-size: 20;
-    font-weight: 'bold';
+    font-weight: bold;
+    margin-right: 1rem;
 }
 .wordList {
-    flex-direction: 'row';
-    flex-wrap: 'wrap';
-    justify-content: 'space-between';
-    padding: 8 0 8 25;
-    background-color: '#FBFEFF';
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 8px 0 8px 25px;
+    background-color: #FBFEFF;
 }
 .iconAndResult {
-    flex-direction: 'row';
-    justify-content: 'center';
-    align-items: 'center';
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    display: inline;
 }
 .circle {
-    width: 12;
-    height: 12;
-    border-radius: 12 / 2;
-    background-color: 'red';
-    border-color: 'black';
-    border-width: 2;
-    margin-right: 5;
+    width: 12px;
+    height: 12px;
+    border-radius: 1rem;
+    background-color: red;
+    margin-right: 5px;
 }
 .circleCorrect {
-    background-color: 'green';
+    background-color: green;
 }
 .circleIncorrect {
-    background-color: 'red';
+    background-color: red;
 }
 .LexiconAndDate {
-    flex-direction: 'row';
-    justify-content: 'space-between';
-    align-items: 'center';
-    width: '47%';
+    display: inline;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
 }
 .selected {
-    background-color: '#87CEFA';
-} */
+    background-color: #87CEFA;
+}

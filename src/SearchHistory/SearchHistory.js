@@ -119,16 +119,11 @@ export default function SearchHistory() {
         <div className='bg'>
             <div className='titleContainer'>
                 <div onClick={handleExport} className="exportButton">
-                <p className="exportText">History</p>
-                <FontAwesomeIcon icon={faFileExport} size={"sm"}/>
+                <h1 className="exportText">History</h1>
+                <FontAwesomeIcon icon={faFileExport} size={"2x"} className="exportText"/>
             </div>
-                </div>
-
-            <div className="searches">
-                {searches}
-            </div>
-
-            <div className="historyFooter">
+        </div>
+        <div className="historyFooter">
                 <div className="buttonRow">
                     <div onClick={deleteSelectedSearches} className="clearButton">
                         <FontAwesomeIcon className={"icon " + (selectedSearches.length ? "btnEnabled" : "btnDisabled")} icon={faTrashCan} size={"sm"}/>
@@ -143,6 +138,18 @@ export default function SearchHistory() {
                     </div>
                 </div>
             </div>
+
+            <div className="searches">
+                {searches}
+            </div>
+
+            <div className="historyFooter">
+                <div className="buttonRow">
+                   <p>End of History</p>
+                </div>
+            </div>
+
         </div>
+        
     )
 }
