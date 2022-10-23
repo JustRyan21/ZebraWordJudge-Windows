@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+Zebra Word Judge 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Project Management tool: https://scrabbleapp-399.atlassian.net/jira/software/projects/TF1/boards/2/roadmap?shared=&atlOrigin=eyJpIjoiNDllYTY5NjhhYmMwNDZmNzliNzY2YzM4MWVmMDM4YmYiLCJwIjoiaiJ9
 
-## Available Scripts
+Description:
+Zebra Word Judge lets users check the validity of words played against a chosen lexicon during a game of scrabble, and can be enjoyed by not just those who play competitively but also by casual players.
+Final Presentation link: https://docs.google.com/presentation/d/149Zw67ydC6_GvL3lUkf4wPDysPHDI1-TEyjD6o5o6HM/edit?usp=sharing
+To create Zebra Word Judge in Native Windows we used Eletron with react js. Programming languages used was Javascript, HTML, and CSS.
 
-In the project directory, you can run:
+Code Dependencies and versions:
+  "dependencies": {
+    "@electron/remote": "^2.0.8",
+    "@fortawesome/fontawesome-svg-core": "^6.2.0",
+    "@fortawesome/free-solid-svg-icons": "^6.2.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@svgr/webpack": "^6.5.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "electron": "^21.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "sqlite": "^4.1.2",
+    "sqlite3": "^5.1.2",
+    "validator": "^13.7.0",
+    "web-vitals": "^2.1.4"
 
-### `npm start`
+  "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/preset-env": "^7.19.3",
+    "@babel/preset-react": "^7.18.6",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "electron-builder": "^23.6.0",
+    "electron-reload": "^2.0.0-alpha.1",
+    "js-sha256": "^0.9.0",
+    "raw-loader": "^4.0.2",
+    "react-svg-loader": "^3.0.3",
+    "sass": "^1.55.0",
+    "sass-loader": "^13.0.2",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Installation:
+Prerequisites: Node.js, VSCode, visual studio 2019/2022, git, jdk latest version, npm, yarn + all required software to install prerequisites.
+- To run the app, please make sure ZebraWordJudge-React-Electron is somewhere in documents folder.
+- Open VSCode > Click File > Click open folder > select ZebraWordJudge-React-Electron folder
+- In VSCode > Click terminial > click new terminal > click split terminal
+- In VSCode > Write in one terminal and press enter the following line - npm install
+- In VSCode > Write in one terminal and press enter the following line - yarn add @svgr/webpack
+- In VSCode > Write in one terminal and press enter the following line - npm i --save @fortawesome/fontawesome-svg-core
+- In VSCode > Write in one terminal and press enter the following line - npm install --save @fortawesome/free-solid-svg-icons
+- In VSCode > Write in one terminal and press enter the following line - npm install --save @fortawesome/react-fontawesome
+- In VSCode > open the file webpack.common.js and check if the following line has been added, if not, add it:
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      },
+- In VSCode > Write in one terminal and press enter the following line - npm run watch (keep this running)
+- In VSCode > Write in the second terminal and press enter the following line - npm start
 
-### `npm test`
+Hosting service:
+The app has not yet been deployed.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Conclusion:
+In the future, we would like to improve the UI by adding more animations and making it look more aesthetic without degrading the user experience and ease of use.
+We would like to acknowledge the teaching staff and our client, Dylan for their guidance and support during this project.
