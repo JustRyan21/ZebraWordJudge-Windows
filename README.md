@@ -13,7 +13,9 @@ Description:
 ----------
 Zebra Word Judge lets users check the validity of words played against a chosen lexicon during a game of scrabble, and can be enjoyed by not just those who play competitively but also by casual players.
 <br>
+<br>
 Final Presentation link: https://docs.google.com/presentation/d/149Zw67ydC6_GvL3lUkf4wPDysPHDI1-TEyjD6o5o6HM/edit?usp=sharing
+<br>
 <br>
 To create Zebra Word Judge in Native Windows we used Eletron with React JS. Programming languages used was Javascript, HTML, and CSS.
 
