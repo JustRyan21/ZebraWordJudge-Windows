@@ -67,18 +67,18 @@ Prerequisites: Node.js, VSCode, Visual Studio 2019/2022, Git, JDK latest version
 1. To run the app, please make sure ZebraWordJudge-React-Electron is somewhere in documents folder.
 2. Open VSCode > Click File > Click open folder > select ZebraWordJudge-React-Electron folder
 3. In VSCode > Click terminial > click new terminal > click split terminal
-4. In VSCode > Write in one terminal and press enter the following line - npm install
-5. In VSCode > Write in one terminal and press enter the following line - yarn add @svgr/webpack
-6. In VSCode > Write in one terminal and press enter the following line - npm i --save @fortawesome/fontawesome-svg-core
-7. In VSCode > Write in one terminal and press enter the following line - npm install --save @fortawesome/free-solid-svg-icons
-8. In VSCode > Write in one terminal and press enter the following line - npm install --save @fortawesome/react-fontawesome
-9. In VSCode > open the file webpack.common.js and check if the following line has been added, if not, add it:
-    <br>{<br>
-    test: /\.svg$/,<br>
-    use: ['@svgr/webpack'],<br>
-    },
-10. In VSCode > Write in one terminal and press enter the following line - npm run watch (keep this running)
-11. In VSCode > Write in the second terminal and press enter the following line - npm start
+4. In VSCode > Write in one terminal and press **Enter** the following line - `npm install`
+5. In VSCode > Write in one terminal and press **Enter** the following line - `yarn add @svgr/webpack`
+6. In VSCode > Write in one terminal and press **Enter** the following line - `npm i --save @fortawesome/fontawesome-svg-core`
+7. In VSCode > Write in one terminal and press **Enter** the following line - `npm install --save @fortawesome/free-solid-svg-icons`
+8. In VSCode > Write in one terminal and press **Enter** the following line - `npm install --save @fortawesome/react-fontawesome`
+9. In VSCode > open the file webpack.common.js in the ZebraWordJudge-React-Electron folder and check if the following line has been added, if not, add it:  
+    `{`  
+    `test: /\.svg$/,`  
+    `use: ['@svgr/webpack'],`  
+    `},`
+10. In VSCode > Write in one terminal and press **Enter** the following line - `npm run watch` (keep this running)
+11. In VSCode > Write in the second terminal and press **Enter** the following line - `npm start`
 
 <br>
 
