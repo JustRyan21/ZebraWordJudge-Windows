@@ -3,7 +3,7 @@ Zebra Word Judge (Windows Desktop)
 
 <br>
 
-Project Management tool:
+Project Management Tool:
 ----------
 https://scrabbleapp-399.atlassian.net/jira/software/projects/TF1/boards/2/roadmap?shared=&atlOrigin=eyJpIjoiNDllYTY5NjhhYmMwNDZmNzliNzY2YzM4MWVmMDM4YmYiLCJwIjoiaiJ9
 
@@ -12,12 +12,14 @@ https://scrabbleapp-399.atlassian.net/jira/software/projects/TF1/boards/2/roadma
 Description:
 ----------
 Zebra Word Judge lets users check the validity of words played against a chosen lexicon during a game of scrabble, and can be enjoyed by not just those who play competitively but also by casual players.
+<br>
 Final Presentation link: https://docs.google.com/presentation/d/149Zw67ydC6_GvL3lUkf4wPDysPHDI1-TEyjD6o5o6HM/edit?usp=sharing
-To create Zebra Word Judge in Native Windows we used Eletron with react js. Programming languages used was Javascript, HTML, and CSS.
+<br>
+To create Zebra Word Judge in Native Windows we used Eletron with React JS. Programming languages used was Javascript, HTML, and CSS.
 
 <br>
 
-Code Dependencies and versions:
+Code Dependencies and Versions:
 ----------
   "dependencies": {
     "@electron/remote": "^2.0.8",
@@ -58,11 +60,11 @@ Code Dependencies and versions:
 
 Installation:
 ----------
-Prerequisites: Node.js, VSCode, visual studio 2019/2022, git, jdk latest version, npm, yarn + all required software to install prerequisites.
+Prerequisites: Node.js, VSCode, Visual Studio 2019/2022, Git, JDK latest version, NPM, Yarn + all required software to install prerequisites.
 
 1. To run the app, please make sure ZebraWordJudge-React-Electron is somewhere in documents folder.
 2. Open VSCode > Click File > Click open folder > select ZebraWordJudge-React-Electron folder
-3. In VSCode > Click terminial > click new terminal > click split terminal</li>
+3. In VSCode > Click terminial > click new terminal > click split terminal
 4. In VSCode > Write in one terminal and press enter the following line - npm install
 5. In VSCode > Write in one terminal and press enter the following line - yarn add @svgr/webpack
 6. In VSCode > Write in one terminal and press enter the following line - npm i --save @fortawesome/fontawesome-svg-core
@@ -78,7 +80,7 @@ Prerequisites: Node.js, VSCode, visual studio 2019/2022, git, jdk latest version
 
 <br>
 
-Hosting service:
+Hosting Service:
 ----------
 The app has not yet been deployed.
 
