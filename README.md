@@ -80,8 +80,8 @@ Prerequisites: Node.js, VSCode, visual studio 2019/2022, git, jdk latest version
 
 User Installation:
 ----------
-1. Open setup folder
-2. run zebrawordjudge Setup 0.1.0.exe
+1. Download setup.zip folder from link: https://drive.google.com/drive/folders/1K2WnvTEb9QGMH55gZC-aqxF9ca_m7R0t?usp=sharing
+2. unzip and run zebrawordjudge Setup 0.1.0.exe
 3. Run zebrawordjudge
 
 <br>
