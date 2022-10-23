@@ -1,11 +1,13 @@
 Zebra Word Judge (Windows Desktop)
 ==========
 
+<br>
 
 Project Management tool:
 ----------
 https://scrabbleapp-399.atlassian.net/jira/software/projects/TF1/boards/2/roadmap?shared=&atlOrigin=eyJpIjoiNDllYTY5NjhhYmMwNDZmNzliNzY2YzM4MWVmMDM4YmYiLCJwIjoiaiJ9
 
+<br>
 
 Description:
 ----------
@@ -13,6 +15,7 @@ Zebra Word Judge lets users check the validity of words played against a chosen 
 Final Presentation link: https://docs.google.com/presentation/d/149Zw67ydC6_GvL3lUkf4wPDysPHDI1-TEyjD6o5o6HM/edit?usp=sharing
 To create Zebra Word Judge in Native Windows we used Eletron with react js. Programming languages used was Javascript, HTML, and CSS.
 
+<br>
 
 Code Dependencies and versions:
 ----------
@@ -51,6 +54,7 @@ Code Dependencies and versions:
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0"
 
+<br>
 
 Installation:
 ----------
@@ -65,18 +69,20 @@ Prerequisites: Node.js, VSCode, visual studio 2019/2022, git, jdk latest version
 7. In VSCode > Write in one terminal and press enter the following line - npm install --save @fortawesome/free-solid-svg-icons
 8. In VSCode > Write in one terminal and press enter the following line - npm install --save @fortawesome/react-fontawesome
 9. In VSCode > open the file webpack.common.js and check if the following line has been added, if not, add it:
-    {
-    test: /\.svg$/,
-    use: ['@svgr/webpack'],
+    <br>{<br>
+    test: /\.svg$/,<br>
+    use: ['@svgr/webpack'],<br>
     },
 10. In VSCode > Write in one terminal and press enter the following line - npm run watch (keep this running)
 11. In VSCode > Write in the second terminal and press enter the following line - npm start
 
+<br>
 
 Hosting service:
 ----------
 The app has not yet been deployed.
 
+<br>
 
 Conclusion:
 ----------
