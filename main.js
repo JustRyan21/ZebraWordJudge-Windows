@@ -10,7 +10,7 @@ ipcMain.on('asynchronous-message', (event, arg) => {
     });
 });
 
-const database = new sqlite3.Database('./database.db', (err) => {
+const database = new sqlite3.Database(path.resolve(__dirname, 'database.db'), {fileMustExist: true}, (err) => {
     if (err) console.error('Database opening error: ', err);
 });
 
@@ -24,11 +24,11 @@ function createWindow() {
             worldSafeExecuteJavaScript: true,
             contextIsolation: false,
             enableRemoteModule: true,
-            // preload: path.join(__dirname, "preload.js")
+            //preload: path.join(__dirname, "preload.js")
         }
     })
 
-    win.loadFile('./public/index.html');
+    win.loadFile(path.join(__dirname + "/index.html"));
 }
 
 app.whenReady().then(createWindow);
@@ -57,10 +57,10 @@ app.whenReady().then(createWindow);
 
 
 const ignoreDB = /database|[/\\]\./
-require('electron-reload')(__dirname, {
-    electron: path.join(__dirname, 'node_modules', '.bin', 'electron'), 
-    ignored: [ignoreDB]
-});
+//require('electron-reload')(__dirname, {
+//    electron: path.join(__dirname, 'node_modules', '.bin', 'electron'), 
+//    ignored: [ignoreDB]
+//});
 
 app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') {

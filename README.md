@@ -56,13 +56,13 @@ Code Dependencies and versions:
 
 <br>
 
-Installation:
+Developer Installation:
 ----------
 Prerequisites: Node.js, VSCode, visual studio 2019/2022, git, jdk latest version, npm, yarn + all required software to install prerequisites.
 
 1. To run the app, please make sure ZebraWordJudge-React-Electron is somewhere in documents folder.
 2. Open VSCode > Click File > Click open folder > select ZebraWordJudge-React-Electron folder
-3. In VSCode > Click terminial > click new terminal > click split terminal</li>
+3. In VSCode > Click terminial > click new terminal > click split terminal
 4. In VSCode > Write in one terminal and press enter the following line - npm install
 5. In VSCode > Write in one terminal and press enter the following line - yarn add @svgr/webpack
 6. In VSCode > Write in one terminal and press enter the following line - npm i --save @fortawesome/fontawesome-svg-core
@@ -78,9 +78,11 @@ Prerequisites: Node.js, VSCode, visual studio 2019/2022, git, jdk latest version
 
 <br>
 
-Hosting service:
+User Installation:
 ----------
-The app has not yet been deployed.
+1. Open setup folder
+2. run zebrawordjudge Setup 0.1.0.exe
+3. Run zebrawordjudge
 
 <br>
 
